@@ -1,0 +1,621 @@
+/* ==========================================================
+   PRICE LIST — VIP LUXURY
+========================================================== */
+
+.prices {
+    position: relative;
+    padding: 120px 0 110px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(201, 169, 110, 0.09),
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            #0a0a0a 0%,
+            #10100f 50%,
+            #0a0a0a 100%
+        );
+
+    overflow: hidden;
+}
+
+.prices::before {
+    content: "";
+
+    position: absolute;
+
+    top: -220px;
+    left: 50%;
+
+    width: 800px;
+    height: 500px;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(201, 169, 110, 0.07),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+/* ==========================================================
+   CONTAINER
+========================================================== */
+
+.container {
+    position: relative;
+
+    width: min(1100px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    z-index: 2;
+}
+
+/* ==========================================================
+   CATEGORIES
+========================================================== */
+
+.categories {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    width: fit-content;
+    max-width: 100%;
+
+    margin: 50px auto 30px;
+
+    padding: 6px;
+
+    border: 1px solid rgba(201, 169, 110, 0.16);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+/* ==========================================================
+   CATEGORY BUTTON
+========================================================== */
+
+.category {
+    min-height: 42px;
+
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.58);
+
+    font-family: inherit;
+
+    font-size: 0.78rem;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.category:hover {
+    color: #f5e3b5;
+
+    background:
+        rgba(201, 169, 110, 0.08);
+
+    transform: translateY(-1px);
+}
+
+.category.active {
+    color: #17130d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5e3b5,
+            #d8b273,
+            #b98a4d
+        );
+
+    font-weight: 600;
+
+    box-shadow:
+        0 8px 28px rgba(201, 169, 110, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+/* ==========================================================
+   PRICE CARD
+========================================================== */
+
+.priceList {
+    position: relative;
+
+    width: 100%;
+
+    margin: 30px auto 0;
+
+    padding: 20px 28px;
+
+    border:
+        1px solid
+        rgba(201, 169, 110, 0.17);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.015)
+        );
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    overflow: hidden;
+}
+
+/* ==========================================================
+   GOLD TOP LINE
+========================================================== */
+
+.priceList::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 55%;
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(201, 169, 110, 0.8),
+            transparent
+        );
+}
+
+/* ==========================================================
+   PRICE ITEM
+========================================================== */
+
+/*
+    ВАЖЛИВО:
+
+    Тут ціна НЕ залежить від довжини назви.
+
+    Кожен рядок має:
+    - назву зліва
+    - декоративну лінію
+    - ціну, зафіксовану справа
+*/
+
+.priceItem {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100%;
+
+    min-height: 58px;
+
+    padding:
+        0 205px 0 0 !important;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.055);
+
+    transition:
+        background 0.3s ease,
+        padding 0.3s ease;
+}
+
+.priceItem:last-child {
+    border-bottom: none;
+}
+
+/* ==========================================================
+   SERVICE NAME
+========================================================== */
+
+.serviceName {
+    position: relative;
+
+    display: block;
+
+    width: fit-content;
+    max-width: 100%;
+
+    padding-top: 19px;
+
+    color:
+        rgba(255, 255, 255, 0.88);
+
+    font-size: 0.88rem;
+
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* ==========================================================
+   DECORATIVE LINE
+========================================================== */
+
+.line {
+    position: absolute;
+
+    /*
+       Лінія починається після назви
+       і закінчується перед ціною.
+    */
+
+    left: 190px;
+    right: 205px;
+
+    top: 50%;
+
+    width: auto !important;
+    height: 1px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(201, 169, 110, 0.20) 0,
+            rgba(201, 169, 110, 0.20) 2px,
+            transparent 2px,
+            transparent 7px
+        );
+
+    opacity: 0.7;
+
+    transform: translateY(-50%);
+
+    transition:
+        opacity 0.3s ease,
+        background 0.3s ease;
+}
+
+/* ==========================================================
+   PRICE — FIXED RIGHT
+========================================================== */
+
+.price {
+    position: absolute !important;
+
+    top: 50%;
+    right: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 180px;
+    min-width: 180px;
+
+    transform: translateY(-50%);
+
+    color: #d8b273;
+
+    font-size: 0.88rem;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    letter-spacing: 0.02em;
+
+    text-align: right;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+/* ==========================================================
+   HOVER
+========================================================== */
+
+.priceItem:hover {
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(201, 169, 110, 0.045),
+            transparent
+        );
+}
+
+.priceItem:hover .serviceName {
+    color: #ffffff;
+
+    transform: translateX(4px);
+}
+
+.priceItem:hover .line {
+    opacity: 1;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(201, 169, 110, 0.45) 0,
+            rgba(201, 169, 110, 0.45) 2px,
+            transparent 2px,
+            transparent 7px
+        );
+}
+
+.priceItem:hover .price {
+    color: #f5e3b5;
+
+    transform:
+        translateY(-50%)
+        translateX(-4px);
+
+    text-shadow:
+        0 0 18px
+        rgba(201, 169, 110, 0.4);
+}
+
+/* ==========================================================
+   NOTE
+========================================================== */
+
+.note {
+    max-width: 760px;
+
+    margin: 28px auto 0;
+
+    color:
+        rgba(255, 255, 255, 0.38);
+
+    font-size: 0.76rem;
+
+    line-height: 1.7;
+
+    text-align: center;
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 900px) {
+
+    .container {
+        width: min(100% - 32px, 760px);
+    }
+
+    .categories {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .category {
+        padding: 0 15px;
+
+        font-size: 0.74rem;
+    }
+
+    .priceList {
+        padding:
+            18px 22px;
+    }
+
+    .priceItem {
+        padding-right: 175px !important;
+    }
+
+    .line {
+        left: 160px;
+        right: 175px;
+    }
+
+    .price {
+        width: 155px;
+        min-width: 155px;
+    }
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 650px) {
+
+    .prices {
+        padding: 90px 0 80px;
+    }
+
+    .container {
+        width:
+            calc(100% - 24px);
+    }
+
+    /* categories */
+
+    .categories {
+        justify-content: flex-start;
+
+        flex-wrap: nowrap;
+
+        width: 100%;
+
+        overflow-x: auto;
+
+        scrollbar-width: none;
+
+        margin-top: 35px;
+
+        padding: 5px;
+
+        border-radius: 14px;
+    }
+
+    .categories::-webkit-scrollbar {
+        display: none;
+    }
+
+    .category {
+        flex: 0 0 auto;
+
+        min-height: 40px;
+
+        padding: 0 15px;
+
+        font-size: 0.72rem;
+    }
+
+    /* price card */
+
+    .priceList {
+        margin-top: 20px;
+
+        padding:
+            10px 15px;
+
+        border-radius: 18px;
+    }
+
+    /*
+       На телефоні ціна також
+       залишається справа.
+    */
+
+    .priceItem {
+        min-height: 62px;
+
+        padding-right: 110px !important;
+    }
+
+    .serviceName {
+        padding-top: 19px;
+
+        font-size: 0.77rem;
+
+        line-height: 1.35;
+    }
+
+    .line {
+        left: 120px;
+        right: 110px;
+    }
+
+    .price {
+        width: 100px;
+        min-width: 100px;
+
+        font-size: 0.74rem;
+    }
+
+    .note {
+        padding: 0 8px;
+
+        font-size: 0.7rem;
+    }
+}
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width: 420px) {
+
+    .container {
+        width:
+            calc(100% - 18px);
+    }
+
+    .priceList {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .priceItem {
+        min-height: 64px;
+
+        padding-right: 94px !important;
+    }
+
+    .serviceName {
+        font-size: 0.73rem;
+    }
+
+    .line {
+        left: 105px;
+        right: 94px;
+    }
+
+    .price {
+        width: 86px;
+        min-width: 86px;
+
+        font-size: 0.69rem;
+    }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .category,
+    .priceItem,
+    .serviceName,
+    .line,
+    .price {
+        transition: none;
+    }
+}

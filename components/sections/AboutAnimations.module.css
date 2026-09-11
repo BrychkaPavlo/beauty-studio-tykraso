@@ -1,0 +1,219 @@
+/* ==========================================================
+   TY KRASO
+   ABOUT ANIMATIONS
+========================================================== */
+
+/* ==========================================
+   INITIAL STATE
+========================================== */
+
+.hidden{
+
+    opacity:0;
+
+    transform:
+        translate3d(0,70px,0);
+
+    transition:
+
+        opacity .9s cubic-bezier(.22,.61,.36,1),
+
+        transform .9s cubic-bezier(.22,.61,.36,1);
+
+    will-change:
+        opacity,
+        transform;
+
+}
+
+.show{
+
+    opacity:1;
+
+    transform:
+        translate3d(0,0,0);
+
+}
+
+/* ==========================================
+   IMAGE
+========================================== */
+
+.imageReveal{
+
+    opacity:0;
+
+    transform:
+
+        scale(1.08);
+
+    filter:
+
+        brightness(.82)
+
+        blur(8px);
+
+    transition:
+
+        opacity 1.2s ease,
+
+        transform 1.8s cubic-bezier(.22,.61,.36,1),
+
+        filter 1.2s ease;
+
+    will-change:
+        transform,
+        filter;
+
+}
+
+.imageReveal.show{
+
+    opacity:1;
+
+    transform:
+        scale(1);
+
+    filter:
+
+        brightness(1)
+
+        blur(0);
+
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.buttonReveal{
+
+    opacity:0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+
+}
+
+.buttonReveal.show{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+
+}
+
+/* ==========================================
+   STATS
+========================================== */
+
+.cardReveal{
+
+    opacity:0;
+
+    transform:
+        translateY(40px);
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+
+}
+
+.cardReveal.show{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+
+}
+
+/* ==========================================
+   DELAYS
+========================================== */
+
+.delay1{
+
+    transition-delay:.12s;
+
+}
+
+.delay2{
+
+    transition-delay:.28s;
+
+}
+
+.delay3{
+
+    transition-delay:.44s;
+
+}
+
+/* ==========================================
+   DIVIDER
+========================================== */
+
+.lineReveal{
+
+    position:relative;
+
+}
+
+.lineReveal::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    transform-origin:left;
+
+    transform:scaleX(0);
+
+    background:#C9A96E;
+
+    transition:
+        transform 1.4s ease;
+
+}
+
+.lineReveal.show::after{
+
+    transform:scaleX(1);
+
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion:reduce){
+
+.hidden,
+.imageReveal,
+.cardReveal,
+.buttonReveal{
+
+transition:none;
+
+transform:none;
+
+filter:none;
+
+opacity:1;
+
+}
+
+}

@@ -1,0 +1,437 @@
+/* ==========================================================
+   ABOUT
+========================================================== */
+
+.about {
+    position: relative;
+    overflow: hidden;
+
+    background: var(--background);
+
+    padding-block:
+        clamp(100px, 10vw, 180px);
+}
+
+/* ==========================================================
+   BACKGROUND
+========================================================== */
+
+.backgroundGlow {
+    position: absolute;
+
+    top: 50%;
+    right: -220px;
+
+    width:
+        clamp(400px, 45vw, 700px);
+
+    aspect-ratio: 1;
+
+    transform:
+        translateY(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(201, 169, 110, .14),
+            transparent 70%
+        );
+
+    filter: blur(120px);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.header {
+    position: relative;
+
+    z-index: 2;
+
+    width:
+        min(
+            var(--container),
+            92%
+        );
+
+    margin-inline: auto;
+
+    margin-bottom:
+        clamp(60px, 8vw, 110px);
+}
+
+.sectionLabel {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: var(--gold);
+
+    letter-spacing: .35em;
+
+    text-transform: uppercase;
+
+    font-size: .82rem;
+
+    font-weight: 500;
+}
+
+.heading {
+    max-width: 760px;
+
+    color: var(--text);
+
+    font-weight: 300;
+
+    line-height: 1.05;
+
+    font-size:
+        clamp(
+            3rem,
+            7vw,
+            6rem
+        );
+}
+
+/* ==========================================================
+   CONTENT
+========================================================== */
+
+.description {
+    position: relative;
+
+    z-index: 2;
+
+    width:
+        min(
+            var(--container),
+            92%
+        );
+
+    margin-inline: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(340px, .85fr);
+
+    align-items: center;
+
+    gap:
+        clamp(48px, 6vw, 100px);
+}
+
+/* ==========================================================
+   TEXT
+========================================================== */
+
+.textBlock {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+.brand {
+    margin-bottom: 28px;
+
+    color: var(--gold);
+
+    text-transform: uppercase;
+
+    letter-spacing: .32em;
+
+    font-size: .9rem;
+
+    font-weight: 500;
+}
+
+.text {
+    margin-bottom: 22px;
+
+    color: var(--text-secondary);
+
+    font-size:
+        clamp(
+            1rem,
+            1.1vw,
+            1.1rem
+        );
+
+    line-height: 1.9;
+}
+
+.button {
+    margin-top: 18px;
+
+    display: inline-flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    min-width: 220px;
+
+    padding: 16px 36px;
+
+    border-radius: 999px;
+
+    background: var(--gold);
+
+    color: var(--background);
+
+    font-weight: 600;
+
+    transition:
+        transform var(--normal),
+        box-shadow var(--normal);
+}
+
+.button:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 18px 35px
+        rgba(201, 169, 110, .35);
+}
+
+/* ==========================================================
+   IMAGE
+========================================================== */
+
+.imageWrapper {
+    position: relative;
+
+    justify-self: end;
+
+    width:
+        min(100%, 500px);
+
+    aspect-ratio: 4 / 5;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, .45);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform .8s ease;
+}
+
+.imageWrapper:hover .image {
+    transform:
+        scale(1.05);
+}
+
+/* ==========================================================
+   STATS
+========================================================== */
+
+.stats {
+    position: relative;
+
+    z-index: 2;
+
+    width:
+        min(
+            var(--container),
+            92%
+        );
+
+    margin:
+        clamp(80px, 8vw, 130px)
+        auto
+        0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    border-top:
+        1px solid var(--border);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.stat {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding:
+        clamp(36px, 5vw, 60px);
+
+    text-align: center;
+}
+
+.stat:not(:last-child) {
+    border-right:
+        1px solid var(--border);
+}
+
+.value {
+    color: var(--gold);
+
+    font-size:
+        clamp(
+            2.6rem,
+            4vw,
+            4.5rem
+        );
+
+    font-weight: 600;
+
+    line-height: 1;
+}
+
+.caption {
+    margin-top: 14px;
+
+    color: var(--text);
+
+    opacity: .85;
+
+    line-height: 1.8;
+
+    font-size: .95rem;
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 992px) {
+
+    .description {
+        grid-template-columns: 1fr;
+
+        gap: 42px;
+    }
+
+    .imageWrapper {
+        order: 1;
+
+        justify-self: center;
+
+        width:
+            min(100%, 420px);
+    }
+
+    .textBlock {
+        order: 2;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .button {
+        align-self: center;
+    }
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .about {
+        padding-block: 90px;
+    }
+
+    .heading {
+        font-size:
+            clamp(
+                2.3rem,
+                9vw,
+                4rem
+            );
+    }
+
+    .description {
+        gap: 36px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+
+        margin-top: 70px;
+    }
+
+    .stat {
+        padding:
+            34px 20px;
+    }
+
+    .stat:not(:last-child) {
+        border-right: none;
+
+        border-bottom:
+            1px solid var(--border);
+    }
+}
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width: 576px) {
+
+    .header {
+        margin-bottom: 50px;
+    }
+
+    .sectionLabel {
+        letter-spacing: .25em;
+    }
+
+    .brand {
+        letter-spacing: .2em;
+    }
+
+    .text {
+        line-height: 1.8;
+
+        margin-bottom: 18px;
+    }
+
+    .imageWrapper {
+        width:
+            min(100%, 360px);
+
+        border-radius: 22px;
+    }
+
+    .button {
+        width: 100%;
+
+        max-width: 320px;
+    }
+}

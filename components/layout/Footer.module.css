@@ -1,0 +1,780 @@
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    position: relative;
+
+    width: 100%;
+
+    padding: 75px 0 30px;
+
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(193, 151, 77, 0.055),
+            transparent 30%
+        ),
+        #080807;
+
+    border-top: 1px solid
+        rgba(210, 171, 101, 0.12);
+
+    overflow: hidden;
+}
+
+/* subtle luxury light */
+
+.footer::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 420px;
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(211, 170, 95, 0.55),
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(
+        1380px,
+        calc(100% - 60px)
+    );
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 70px;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    min-width: 250px;
+}
+
+.logo {
+    display: inline-block;
+
+    color: #e0bd78;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    letter-spacing: 7px;
+
+    text-decoration: none;
+
+    transition:
+        color 0.35s ease,
+        letter-spacing 0.45s
+            cubic-bezier(
+                0.22,
+                0.61,
+                0.36,
+                1
+            );
+}
+
+.logo:hover {
+    color: #f1d69e;
+
+    letter-spacing: 8px;
+}
+
+.studio {
+    margin-top: 13px;
+
+    color: #807968;
+
+    font-size: 8px;
+
+    line-height: 1;
+
+    letter-spacing: 5px;
+}
+
+.brandLine {
+    width: 65px;
+    height: 1px;
+
+    margin-top: 27px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #b78d48,
+            transparent
+        );
+
+    opacity: 0.65;
+}
+
+.copyright {
+    margin: 20px 0 0;
+
+    color: #68645b;
+
+    font-size: 10px;
+
+    letter-spacing: 0.5px;
+}
+
+/* =========================================================
+   RIGHT
+========================================================= */
+
+.right {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 22px;
+
+    min-width: 420px;
+}
+
+/* =========================================================
+   SOCIALS
+========================================================= */
+
+.socials {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.social {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid
+        rgba(210, 171, 101, 0.2);
+
+    border-radius: 50%;
+
+    color: #bda06a;
+
+    background:
+        rgba(255, 255, 255, 0.015);
+
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s
+            cubic-bezier(
+                0.22,
+                0.61,
+                0.36,
+                1
+            );
+}
+
+.social:hover {
+    color: #ead09a;
+
+    border-color:
+        rgba(216, 177, 105, 0.5);
+
+    background:
+        rgba(210, 171, 101, 0.06);
+
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   LOCATION LINKS
+========================================================= */
+
+.locationLinks {
+    display: flex;
+
+    align-items: stretch;
+
+    gap: 12px;
+}
+
+/* =========================================================
+   LOCATION CARD
+========================================================= */
+
+.locationCard {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    min-width: 245px;
+
+    min-height: 67px;
+
+    padding: 12px 14px;
+
+    border: 1px solid
+        rgba(210, 171, 101, 0.15);
+
+    border-radius: 3px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.025),
+            rgba(255, 255, 255, 0.008)
+        );
+
+    color: inherit;
+
+    text-decoration: none;
+
+    overflow: hidden;
+
+    transition:
+        border-color 0.45s ease,
+        background 0.45s ease,
+        box-shadow 0.45s ease,
+        transform 0.45s
+            cubic-bezier(
+                0.22,
+                0.61,
+                0.36,
+                1
+            );
+}
+
+/*
+ * дуже легкий золотий glow
+ */
+
+.locationCard::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            105deg,
+            transparent 25%,
+            rgba(211, 170, 95, 0.07),
+            transparent 75%
+        );
+
+    transform:
+        translateX(-100%);
+
+    transition:
+        transform 0.8s
+            cubic-bezier(
+                0.22,
+                0.61,
+                0.36,
+                1
+            );
+
+    pointer-events: none;
+}
+
+.locationCard:hover {
+    border-color:
+        rgba(210, 171, 101, 0.35);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(210, 171, 101, 0.055),
+            rgba(255, 255, 255, 0.012)
+        );
+
+    box-shadow:
+        0 15px 35px
+            rgba(0, 0, 0, 0.25),
+        0 0 25px
+            rgba(190, 147, 73, 0.035);
+
+    transform: translateY(-2px);
+}
+
+.locationCard:hover::before {
+    transform:
+        translateX(100%);
+}
+
+/* =========================================================
+   LOCATION ICON
+========================================================= */
+
+.locationIcon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 36px;
+    height: 36px;
+
+    margin-right: 12px;
+
+    border: 1px solid
+        rgba(210, 171, 101, 0.2);
+
+    border-radius: 50%;
+
+    color: #c7a567;
+
+    font-size: 13px;
+
+    transition:
+        border-color 0.35s ease,
+        color 0.35s ease;
+}
+
+.locationCard:hover
+    .locationIcon {
+    color: #ead09a;
+
+    border-color:
+        rgba(210, 171, 101, 0.45);
+}
+
+/* =========================================================
+   LOCATION TEXT
+========================================================= */
+
+.locationText {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    min-width: 0;
+}
+
+.locationText small {
+    margin-bottom: 6px;
+
+    color: #777166;
+
+    font-size: 7px;
+
+    line-height: 1;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
+}
+
+.locationText strong {
+    color: #cdb27e;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 13px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.4px;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.35s ease;
+}
+
+.locationCard:hover
+    .locationText strong {
+    color: #e5cca0;
+}
+
+/* =========================================================
+   LOCATION ARROW
+========================================================= */
+
+.locationArrow {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-left: auto;
+    padding-left: 12px;
+
+    color: #806b47;
+
+    font-size: 11px;
+
+    transition:
+        color 0.35s ease,
+        transform 0.35s
+            cubic-bezier(
+                0.22,
+                0.61,
+                0.36,
+                1
+            );
+}
+
+.locationCard:hover
+    .locationArrow {
+    color: #d5b473;
+
+    transform:
+        translate(2px, -2px);
+}
+
+/* =========================================================
+   BOOK BUTTON
+========================================================= */
+
+.contact {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    min-width: 230px;
+
+    padding: 15px 23px;
+
+    border: 1px solid
+        rgba(211, 170, 95, 0.48);
+
+    border-radius: 2px;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(202, 159, 83, 0.08),
+            rgba(202, 159, 83, 0.025)
+        );
+
+    color: #d9bd85;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    transition:
+        background 0.4s ease,
+        border-color 0.4s ease,
+        color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.contact:hover {
+    border-color:
+        rgba(222, 184, 111, 0.75);
+
+    background:
+        rgba(207, 165, 89, 0.1);
+
+    color: #f0d9a7;
+
+    box-shadow:
+        0 0 30px
+            rgba(205, 164, 89, 0.07);
+}
+
+.contactArrow {
+    font-size: 15px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.35s
+            cubic-bezier(
+                0.22,
+                0.61,
+                0.36,
+                1
+            );
+}
+
+.contact:hover
+    .contactArrow {
+    transform:
+        translate(3px, -3px);
+}
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.bottom {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    width: min(
+        1380px,
+        calc(100% - 60px)
+    );
+
+    margin: 65px auto 0;
+}
+
+.bottom > span {
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(210, 171, 101, 0.12)
+        );
+}
+
+.bottom > span:last-child {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(210, 171, 101, 0.12),
+            transparent
+        );
+}
+
+.bottomMark {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    border: 1px solid
+        rgba(210, 171, 101, 0.2);
+
+    border-radius: 50%;
+
+    color: #927849;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+    .container {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 45px;
+    }
+
+    .right {
+        align-items: flex-start;
+
+        width: 100%;
+
+        min-width: 0;
+    }
+
+    .locationLinks {
+        width: 100%;
+    }
+
+    .locationCard {
+        flex: 1;
+    }
+
+    .contact {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+    .footer {
+        padding: 65px 0 25px;
+    }
+
+    .container {
+        width: min(
+            100% - 30px,
+            500px
+        );
+
+        gap: 40px;
+    }
+
+    .brand {
+        min-width: 0;
+    }
+
+    .logo {
+        font-size: 27px;
+
+        letter-spacing: 6px;
+    }
+
+    .right {
+        gap: 18px;
+    }
+
+    .socials {
+        margin-bottom: 2px;
+    }
+
+    .locationLinks {
+        flex-direction: column;
+
+        width: 100%;
+
+        gap: 10px;
+    }
+
+    .locationCard {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+    .contact {
+        min-width: 0;
+
+        width: 100%;
+    }
+
+    .bottom {
+        width: min(
+            100% - 30px,
+            500px
+        );
+
+        margin-top: 50px;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+    .footer {
+        padding-top: 55px;
+    }
+
+    .logo {
+        font-size: 24px;
+
+        letter-spacing: 5px;
+    }
+
+    .studio {
+        font-size: 7px;
+
+        letter-spacing: 4px;
+    }
+
+    .copyright {
+        font-size: 9px;
+    }
+
+    .locationText strong {
+        font-size: 12px;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .logo,
+    .social,
+    .locationCard,
+    .locationCard::before,
+    .locationIcon,
+    .locationText strong,
+    .locationArrow,
+    .contact,
+    .contactArrow {
+        transition: none !important;
+    }
+}

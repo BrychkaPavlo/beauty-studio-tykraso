@@ -1,0 +1,148 @@
+/* ==========================================================
+   REVEAL
+========================================================== */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translate3d(0, 60px, 0);
+
+    transition:
+        opacity .9s cubic-bezier(.22, .61, .36, 1),
+        transform .9s cubic-bezier(.22, .61, .36, 1);
+
+    will-change:
+        opacity,
+        transform;
+
+    backface-visibility: hidden;
+}
+
+/* ==========================================================
+   EFFECTS
+========================================================== */
+
+.fadeUp {
+    transform:
+        translate3d(0, 60px, 0);
+}
+
+.fadeLeft {
+    transform:
+        translate3d(-70px, 0, 0);
+}
+
+.fadeRight {
+    transform:
+        translate3d(70px, 0, 0);
+}
+
+.zoom {
+    transform:
+        scale(.92);
+}
+
+.blur {
+    filter:
+        blur(12px);
+
+    transition:
+        opacity .9s cubic-bezier(.22, .61, .36, 1),
+        filter 1s ease;
+}
+
+/* ==========================================================
+   ACTIVE
+========================================================== */
+
+.show {
+    opacity: 1;
+}
+
+.show.fadeUp,
+.show.fadeLeft,
+.show.fadeRight {
+    transform:
+        translate3d(0, 0, 0);
+}
+
+.show.zoom {
+    transform:
+        scale(1);
+}
+
+.show.blur {
+    filter:
+        blur(0);
+}
+
+/* ==========================================================
+   PERFORMANCE
+========================================================== */
+
+.fadeUp,
+.fadeLeft,
+.fadeRight,
+.zoom {
+    backface-visibility: hidden;
+
+    transform-style: preserve-3d;
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .reveal {
+        transition-duration:
+            .75s;
+    }
+
+    .fadeLeft {
+        transform:
+            translate3d(-30px, 0, 0);
+    }
+
+    .fadeRight {
+        transform:
+            translate3d(30px, 0, 0);
+    }
+
+    .fadeUp {
+        transform:
+            translate3d(0, 35px, 0);
+    }
+
+    .zoom {
+        transform:
+            scale(.96);
+    }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal,
+    .fadeUp,
+    .fadeLeft,
+    .fadeRight,
+    .zoom,
+    .blur {
+
+        opacity: 1;
+
+        transform: none;
+
+        filter: none;
+
+        transition: none;
+
+        will-change: auto;
+    }
+}
