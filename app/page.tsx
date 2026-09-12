@@ -14,7 +14,7 @@ import PriceList from "@/components/PriceList/Prices";
 import BackToTop from "@/components/ui/BackToTop";
 
 export const metadata: Metadata = {
-  title: "TY KRASO — Kosmetický salon a Beauty Studio",
+  title: "TY KRASO | BEAUTY STUDIO",
   description:
     "TY KRASO Beauty Studio nabízí laserovou epilaci, elektroepilaci, voskovou depilaci, kadeřnické služby, manikúru, pedikúru, masáže, kosmetiku, řasy a obočí.",
 
