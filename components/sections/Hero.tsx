@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-
 import { useEffect, useRef, useState } from "react";
 
 import styles from "./Hero.module.css";
@@ -14,38 +13,73 @@ type Language = "cs" | "en" | "uk";
 
 const heroContent = {
     cs: {
-        subtitle: "PREMIUM BEAUTY STUDIO",
+        subtitle: "PREMIUM BEAUTY STUDIO V TRUTNOVĚ",
+
         secondTitle: "BEAUTY STUDIO",
+
         description:
-            "Objevte atmosféru prémiové péče, profesionálního servisu a moderní estetiky. Pomáháme zvýraznit přirozenou krásu a vytvořit vzhled, který vám každý den dodá sebevědomí.",
+            "Objevte atmosféru prémiové péče, profesionálního servisu a moderní estetiky v Trutnově. TY KRASO nabízí laserovou epilaci, kadeřnické služby, manikúru, pedikúru, masáže, kosmetiku, řasy a obočí.",
+
         primaryButton: "Objednat se",
+
         secondaryButton: "Naše služby",
+
+        imageAlt:
+            "TY KRASO Beauty Studio v Trutnově",
     },
 
     en: {
-        subtitle: "PREMIUM BEAUTY STUDIO",
+        subtitle: "PREMIUM BEAUTY STUDIO IN TRUTNOV",
+
         secondTitle: "BEAUTY STUDIO",
+
         description:
-            "Experience the atmosphere of premium care, professional service and modern aesthetics. We help enhance your natural beauty and create a look that gives you confidence every day.",
+            "Experience the atmosphere of premium care, professional service and modern aesthetics in Trutnov. TY KRASO offers laser hair removal, hairdressing, manicure, pedicure, massage, cosmetics, lashes and eyebrows.",
+
         primaryButton: "Book now",
+
         secondaryButton: "Our services",
+
+        imageAlt:
+            "TY KRASO Beauty Studio in Trutnov",
     },
 
     uk: {
-        subtitle: "PREMIUM BEAUTY STUDIO",
+        subtitle: "PREMIUM BEAUTY STUDIO У ТРУТНОВІ",
+
         secondTitle: "BEAUTY STUDIO",
+
         description:
-            "Відчуйте атмосферу преміального догляду, професійного сервісу та сучасної естетики. Ми допомагаємо підкреслити природну красу, створюючи образ, який дарує впевненість щодня.",
+            "Відчуйте атмосферу преміального догляду, професійного сервісу та сучасної естетики у Трутнові. TY KRASO пропонує лазерну епіляцію, перукарські послуги, манікюр, педикюр, масаж, косметологію, вії та брови.",
+
         primaryButton: "Записатися",
+
         secondaryButton: "Наші послуги",
+
+        imageAlt:
+            "TY KRASO Beauty Studio у Трутнові",
     },
 };
 
 export default function Hero() {
     const heroRef = useRef<HTMLElement>(null);
 
-    // Czech is the default language
-    const [language, setLanguage] = useState<Language>("cs");
+    /*
+     * =====================================================
+     * LANGUAGE
+     * =====================================================
+     *
+     * Czech is the default language.
+     */
+
+    const [language, setLanguage] =
+        useState<Language>("cs");
+
+    /*
+     * =====================================================
+     * LOAD SAVED LANGUAGE
+     * =====================================================
+     */
 
     useEffect(() => {
         const savedLanguage =
@@ -62,54 +96,67 @@ export default function Hero() {
         }
     }, []);
 
-    const content = heroContent[language];
+    const content =
+        heroContent[language];
+
+    /*
+     * =====================================================
+     * RENDER
+     * =====================================================
+     */
 
     return (
         <section
             ref={heroRef}
             className={styles.hero}
+            aria-labelledby="hero-title"
         >
-            {/* =========================
+            {/* =================================================
                 BACKGROUND
-            ========================== */}
+            ================================================== */}
 
             <div className={styles.background}>
-
                 <Image
                     src="/images/hero/hero-bg.png"
-                    alt="Ty Kraso Beauty Studio"
+                    alt={content.imageAlt}
                     fill
                     priority
+                    sizes="100vw"
                     className={`${styles.backgroundImage} ${animations.heroReveal}`}
                 />
 
                 {/* Dark Overlay */}
 
-                <div className={styles.overlay}></div>
+                <div
+                    className={styles.overlay}
+                    aria-hidden="true"
+                />
 
                 {/* Gold Light */}
 
                 <div
                     className={`${styles.goldLight} ${animations.lightReveal}`}
+                    aria-hidden="true"
                 />
 
                 {/* Luxury Particles */}
 
                 <HeroParticles />
 
+                {/* Interactive Hero Effects */}
+
                 <HeroEffects
                     heroRef={heroRef}
                 />
-
             </div>
 
-            {/* =========================
-                CONTENT
-            ========================== */}
+            {/* =================================================
+                HERO CONTENT
+            ================================================== */}
 
             <div className={styles.container}>
-
                 <div className={styles.content}>
+                    {/* Subtitle */}
 
                     <span
                         className={`${styles.subtitle} ${animations.subtitleReveal}`}
@@ -117,11 +164,16 @@ export default function Hero() {
                         {content.subtitle}
                     </span>
 
+                    {/* Main SEO Heading */}
+
                     <h1
+                        id="hero-title"
                         className={`${styles.title} ${animations.titleReveal}`}
                     >
                         TY KRASO
                     </h1>
+
+                    {/* Secondary Heading */}
 
                     <h2
                         className={`${styles.secondTitle} ${animations.secondTitleReveal}`}
@@ -129,52 +181,59 @@ export default function Hero() {
                         {content.secondTitle}
                     </h2>
 
+                    {/* Description */}
+
                     <p
                         className={`${styles.description} ${animations.descriptionReveal}`}
                     >
                         {content.description}
                     </p>
 
-                    {/* =========================
+                    {/* =================================================
                         BUTTONS
-                    ========================== */}
+                    ================================================== */}
 
                     <div
                         className={`${styles.buttons} ${animations.buttonsReveal}`}
                     >
-
                         <Link
                             href="#contact"
-                            className={styles.primaryButton}
+                            className={
+                                styles.primaryButton
+                            }
                         >
                             {content.primaryButton}
                         </Link>
 
                         <Link
                             href="#services"
-                            className={styles.secondaryButton}
+                            className={
+                                styles.secondaryButton
+                            }
                         >
                             {content.secondaryButton}
                         </Link>
-
                     </div>
-
                 </div>
-
             </div>
 
-            {/* =========================
+            {/* =================================================
                 SCROLL
-            ========================== */}
+            ================================================== */}
 
             <Link
                 href="#about"
-                aria-label="Scroll Down"
+                aria-label={
+                    language === "cs"
+                        ? "Přejít na informace o TY KRASO"
+                        : language === "en"
+                            ? "Go to information about TY KRASO"
+                            : "Перейти до інформації про TY KRASO"
+                }
                 className={`${styles.scroll} ${animations.scrollReveal}`}
             >
-                <span></span>
+                <span aria-hidden="true"></span>
             </Link>
-
         </section>
     );
 }

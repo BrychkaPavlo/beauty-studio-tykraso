@@ -18,7 +18,7 @@ const content = {
             </>
         ),
         description:
-            "Rezervujte si proceduru online a získejte konzultaci od našich specialistů.",
+            "Rezervujte si svou návštěvu v TY KRASO Beauty Studio v Trutnově. Vyberte si z profesionálních beauty služeb, objednejte se online a dopřejte si individuální péči od našich specialistů.",
         button: "Objednat se",
     },
 
@@ -31,7 +31,7 @@ const content = {
             </>
         ),
         description:
-            "Book your treatment online and receive a consultation from our specialists.",
+            "Book your visit at TY KRASO Beauty Studio in Trutnov. Choose from our professional beauty services and enjoy individual care from our specialists.",
         button: "Book now",
     },
 
@@ -44,7 +44,7 @@ const content = {
             </>
         ),
         description:
-            "Забронюйте процедуру онлайн та отримайте консультацію наших майстрів.",
+            "Запишіться до TY KRASO Beauty Studio у Трутнові. Оберіть професійну beauty-процедуру та отримайте індивідуальний догляд від наших майстрів.",
         button: "Записатися зараз",
     },
 };
@@ -71,8 +71,14 @@ export default function CTA() {
     const currentContent = content[language];
 
     return (
-        <section className={styles.cta}>
-            <div className={styles.glow} />
+        <section
+            className={styles.cta}
+            aria-labelledby="cta-title"
+        >
+            <div
+                className={styles.glow}
+                aria-hidden="true"
+            />
 
             <div className={styles.container}>
 
@@ -99,7 +105,10 @@ export default function CTA() {
                         TY KRASO BEAUTY STUDIO
                     </span>
 
-                    <h2 className={styles.title}>
+                    <h2
+                        id="cta-title"
+                        className={styles.title}
+                    >
                         {currentContent.title}
                     </h2>
 

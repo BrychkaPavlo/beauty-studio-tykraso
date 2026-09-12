@@ -107,6 +107,30 @@
 
     line-height: 1.05;
 }
+/* ==========================================================
+   DESCRIPTION
+========================================================== */
+
+.description {
+    max-width: 760px;
+
+    margin:
+        28px auto 0;
+
+    color:
+        rgba(255, 255, 255, .62);
+
+    font-size:
+        clamp(
+            .9rem,
+            1.4vw,
+            1rem
+        );
+
+    line-height: 1.8;
+
+    letter-spacing: .02em;
+}
 
 /* ==========================================================
    GRID
@@ -303,6 +327,16 @@
         margin-top: 12px;
 
         font-size: .78rem;
+    }
+
+    .description {
+        max-width: 100%;
+    
+        margin-top: 22px;
+    
+        font-size: .88rem;
+    
+        line-height: 1.7;
     }
 }
 

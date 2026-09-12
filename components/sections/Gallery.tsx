@@ -24,25 +24,40 @@ const content = {
     cs: {
         subtitle: "Galerie",
         title: "Naše práce",
+        description:
+            "Prohlédněte si ukázky práce specialistů TY KRASO Beauty Studio v Trutnově.",
         open: "Prohlédnout galerii",
         close: "Zavřít",
         empty: "Galerie se připravuje",
+        previous: "Předchozí fotografie",
+        next: "Další fotografie",
+        treatments: "Procedury",
     },
 
     en: {
         subtitle: "Gallery",
         title: "Our work",
+        description:
+            "Explore examples of work by the specialists at TY KRASO Beauty Studio in Trutnov.",
         open: "View gallery",
         close: "Close",
         empty: "Gallery coming soon",
+        previous: "Previous photo",
+        next: "Next photo",
+        treatments: "Treatments",
     },
 
     uk: {
         subtitle: "Галерея",
         title: "Наші роботи",
+        description:
+            "Перегляньте приклади робіт спеціалістів TY KRASO Beauty Studio у Трутнові.",
         open: "Переглянути роботи",
         close: "Закрити",
         empty: "Галерея готується",
+        previous: "Попереднє фото",
+        next: "Наступне фото",
+        treatments: "Процедури",
     },
 };
 
@@ -197,7 +212,7 @@ export default function Gallery() {
 
     /*
     |--------------------------------------------------------------------------
-    | OPEN BOOK
+    | OPEN GALLERY
     |--------------------------------------------------------------------------
     */
 
@@ -217,7 +232,7 @@ export default function Gallery() {
 
     /*
     |--------------------------------------------------------------------------
-    | CLOSE BOOK
+    | CLOSE GALLERY
     |--------------------------------------------------------------------------
     */
 
@@ -323,17 +338,54 @@ export default function Gallery() {
     const currentContent =
         content[language];
 
+    /*
+    |--------------------------------------------------------------------------
+    | IMAGE ALT
+    |--------------------------------------------------------------------------
+    */
+
+    const getImageAlt = (
+        categoryId: string,
+        imageName?: string
+    ) => {
+        const category =
+            categoryTitles[categoryId]?.[
+                language
+            ] ?? "TY KRASO Beauty Studio";
+
+        if (language === "cs") {
+            return imageName
+                ? `${category} — ${imageName} | TY KRASO Beauty Studio Trutnov`
+                : `${category} | TY KRASO Beauty Studio v Trutnově`;
+        }
+
+        if (language === "en") {
+            return imageName
+                ? `${category} — ${imageName} | TY KRASO Beauty Studio Trutnov`
+                : `${category} | TY KRASO Beauty Studio in Trutnov`;
+        }
+
+        return imageName
+            ? `${category} — ${imageName} | TY KRASO Beauty Studio Trutnov`
+            : `${category} | TY KRASO Beauty Studio у Трутнові`;
+    };
+
     return (
         <>
             <section
                 id="gallery"
                 className={styles.gallery}
+                aria-labelledby="gallery-title"
             >
                 <div
                     className={
                         styles.container
                     }
                 >
+                    {/* =================================================
+                        SECTION TITLE
+                    ================================================== */}
+
                     <SectionTitle
                         subtitle={
                             currentContent.subtitle
@@ -344,10 +396,30 @@ export default function Gallery() {
                         center
                     />
 
+                    <p
+                        id="gallery-title"
+                        className={
+                            styles.sectionDescription
+                        }
+                    >
+                        {
+                            currentContent.description
+                        }
+                    </p>
+
                     {loading ? (
                         <div
                             className={
                                 styles.loading
+                            }
+                            aria-label={
+                                language ===
+                                "cs"
+                                    ? "Načítání galerie"
+                                    : language ===
+                                        "en"
+                                        ? "Loading gallery"
+                                        : "Завантаження галереї"
                             }
                         >
                             <span />
@@ -374,6 +446,14 @@ export default function Gallery() {
                                         category
                                             .images
                                             .length;
+
+                                    const categoryTitle =
+                                        categoryTitles[
+                                            category.id
+                                        ]?.[
+                                            language
+                                        ] ??
+                                        category.id;
 
                                     return (
                                         <motion.article
@@ -416,18 +496,22 @@ export default function Gallery() {
                                                         ease: "easeOut",
                                                     },
                                             }}
-                                            onClick={() =>
-                                                openGallery(
-                                                    category
-                                                )
-                                            }
                                         >
-                                            <div
+                                            <button
+                                                type="button"
                                                 className={
                                                     styles.bookInner
                                                 }
+                                                onClick={() =>
+                                                    openGallery(
+                                                        category
+                                                    )
+                                                }
+                                                aria-label={`${currentContent.open}: ${categoryTitle}`}
                                             >
-                                                {/* BOOK COVER */}
+                                                {/* =================================================
+                                                    BOOK COVER
+                                                ================================================== */}
 
                                                 <div
                                                     className={
@@ -439,14 +523,12 @@ export default function Gallery() {
                                                             src={
                                                                 firstImage
                                                             }
-                                                            alt={
-                                                                categoryTitles[
-                                                                    category
-                                                                        .id
-                                                                ][
-                                                                    language
-                                                                ]
-                                                            }
+                                                            alt={getImageAlt(
+                                                                category.id,
+                                                                category
+                                                                    .images[0]
+                                                                    ?.name
+                                                            )}
                                                             fill
                                                             sizes="
                                                                 (max-width: 768px) 90vw,
@@ -471,6 +553,7 @@ export default function Gallery() {
                                                         className={
                                                             styles.coverOverlay
                                                         }
+                                                        aria-hidden="true"
                                                     />
 
                                                     <div
@@ -494,12 +577,7 @@ export default function Gallery() {
 
                                                         <h3>
                                                             {
-                                                                categoryTitles[
-                                                                    category
-                                                                        .id
-                                                                ][
-                                                                    language
-                                                                ]
+                                                                categoryTitle
                                                             }
                                                         </h3>
 
@@ -515,12 +593,17 @@ export default function Gallery() {
                                                         className={
                                                             styles.photoCount
                                                         }
+                                                        aria-label={`${imageCount} ${currentContent.open}`}
                                                     >
-                                                        {imageCount}
+                                                        {
+                                                            imageCount
+                                                        }
                                                     </div>
                                                 </div>
 
-                                                {/* HOVER PAGE */}
+                                                {/* =================================================
+                                                    HOVER PAGE
+                                                ================================================== */}
 
                                                 <div
                                                     className={
@@ -531,6 +614,7 @@ export default function Gallery() {
                                                         className={
                                                             styles.pageDecor
                                                         }
+                                                        aria-hidden="true"
                                                     />
 
                                                     <div
@@ -546,12 +630,7 @@ export default function Gallery() {
 
                                                         <strong>
                                                             {
-                                                                categoryTitles[
-                                                                    category
-                                                                        .id
-                                                                ][
-                                                                    language
-                                                                ]
+                                                                categoryTitle
                                                             }
                                                         </strong>
 
@@ -576,7 +655,7 @@ export default function Gallery() {
                                                         )}
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </button>
                                         </motion.article>
                                     );
                                 }
@@ -607,6 +686,13 @@ export default function Gallery() {
                         }}
                         onClick={
                             closeGallery
+                        }
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label={
+                            categoryTitles[
+                                activeCategory.id
+                            ]?.[language]
                         }
                     >
                         <motion.div
@@ -641,7 +727,9 @@ export default function Gallery() {
                                 event.stopPropagation()
                             }
                         >
-                            {/* CLOSE */}
+                            {/* =================================================
+                                CLOSE
+                            ================================================== */}
 
                             <button
                                 type="button"
@@ -658,7 +746,9 @@ export default function Gallery() {
                                 ×
                             </button>
 
-                            {/* TITLE */}
+                            {/* =================================================
+                                TITLE
+                            ================================================== */}
 
                             <div
                                 className={
@@ -675,14 +765,16 @@ export default function Gallery() {
                                         categoryTitles[
                                             activeCategory
                                                 .id
-                                        ][
+                                        ]?.[
                                             language
                                         ]
                                     }
                                 </h3>
                             </div>
 
-                            {/* IMAGE */}
+                            {/* =================================================
+                                IMAGE
+                            ================================================== */}
 
                             <div
                                 className={
@@ -722,14 +814,14 @@ export default function Gallery() {
                                                     activeImage
                                                 ].src
                                             }
-                                            alt={
-                                                categoryTitles[
-                                                    activeCategory
-                                                        .id
-                                                ][
-                                                    language
-                                                ]
-                                            }
+                                            alt={getImageAlt(
+                                                activeCategory
+                                                    .id,
+                                                activeCategory
+                                                    .images[
+                                                    activeImage
+                                                ]?.name
+                                            )}
                                             fill
                                             sizes="90vw"
                                             className={
@@ -741,7 +833,9 @@ export default function Gallery() {
                                 </AnimatePresence>
                             </div>
 
-                            {/* CONTROLS */}
+                            {/* =================================================
+                                CONTROLS
+                            ================================================== */}
 
                             {activeCategory.images
                                 .length >
@@ -753,7 +847,9 @@ export default function Gallery() {
                                         onClick={
                                             previousImage
                                         }
-                                        aria-label="Previous"
+                                        aria-label={
+                                            currentContent.previous
+                                        }
                                     >
                                         ‹
                                     </button>
@@ -764,14 +860,18 @@ export default function Gallery() {
                                         onClick={
                                             nextImage
                                         }
-                                        aria-label="Next"
+                                        aria-label={
+                                            currentContent.next
+                                        }
                                     >
                                         ›
                                     </button>
                                 </>
                             )}
 
-                            {/* FOOTER */}
+                            {/* =================================================
+                                FOOTER
+                            ================================================== */}
 
                             <div
                                 className={

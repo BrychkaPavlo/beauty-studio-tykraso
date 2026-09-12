@@ -19,7 +19,7 @@ type Service = {
 
 const services: Record<Language, Service[]> = {
     /* =====================================================
-       CZECH
+       CZECH — MAIN LANGUAGE
     ===================================================== */
 
     cs: [
@@ -32,7 +32,7 @@ const services: Record<Language, Service[]> = {
                 "Vosková depilace",
             ],
             description:
-                "Profesionální péče a moderní metody odstranění chloupků s důrazem na komfort a bezpečnost.",
+                "Profesionální laserová epilace, elektroepilace a vosková depilace v TY KRASO Beauty Studio v Trutnově. Moderní metody s důrazem na komfort, bezpečnost a individuální přístup.",
             image: "/images/services/1Cosmetology.png",
         },
 
@@ -45,7 +45,7 @@ const services: Record<Language, Service[]> = {
                 "Styling",
             ],
             description:
-                "Individuální péče o vlasy, moderní střihy, barvení a styling podle vašich představ.",
+                "Individuální péče o vlasy v Trutnově — moderní střihy, barvení a styling podle vašich představ a potřeb.",
             image: "/images/services/3Hairdressing.png",
         },
 
@@ -58,7 +58,7 @@ const services: Record<Language, Service[]> = {
                 "Úprava nehtů",
             ],
             description:
-                "Precizní manikúra a profesionální péče pro krásné a dokonale upravené ruce.",
+                "Precizní manikúra a profesionální péče o nehty pro krásné a dokonale upravené ruce v příjemném prostředí TY KRASO.",
             image: "/images/services/2Manicure.png",
         },
 
@@ -70,7 +70,7 @@ const services: Record<Language, Service[]> = {
                 "Pedikúra",
             ],
             description:
-                "Relaxace, regenerace a profesionální péče o tělo i chodidla.",
+                "Relaxace, regenerace a profesionální péče o tělo i chodidla. Dopřejte si chvíli odpočinku v TY KRASO Beauty Studio v Trutnově.",
             image: "/images/services/4Massage.png",
         },
 
@@ -83,7 +83,7 @@ const services: Record<Language, Service[]> = {
                 "Obočí",
             ],
             description:
-                "Komplexní kosmetická péče a zvýraznění přirozené krásy obličeje.",
+                "Komplexní kosmetická péče a zvýraznění přirozené krásy obličeje. Kosmetika, řasy a obočí s individuálním přístupem.",
             image: "/images/services/5Brows & Lashes.png",
         },
     ],
@@ -102,7 +102,7 @@ const services: Record<Language, Service[]> = {
                 "Waxing",
             ],
             description:
-                "Professional care and modern hair removal methods with a focus on comfort and safety.",
+                "Professional laser hair removal, electrolysis and waxing at TY KRASO Beauty Studio in Trutnov. Modern methods with a focus on comfort, safety and individual care.",
             image: "/images/services/1Cosmetology.png",
         },
 
@@ -115,7 +115,7 @@ const services: Record<Language, Service[]> = {
                 "Styling",
             ],
             description:
-                "Individual hair care, modern cuts, coloring and styling tailored to your preferences.",
+                "Individual hair care in Trutnov — modern haircuts, coloring and styling tailored to your preferences and needs.",
             image: "/images/services/3Hairdressing.png",
         },
 
@@ -128,7 +128,7 @@ const services: Record<Language, Service[]> = {
                 "Nail Shaping",
             ],
             description:
-                "Precise manicure and professional care for beautiful and perfectly groomed hands.",
+                "Precise manicure and professional nail care for beautiful and perfectly groomed hands in the comfortable TY KRASO environment.",
             image: "/images/services/2Manicure.png",
         },
 
@@ -140,7 +140,7 @@ const services: Record<Language, Service[]> = {
                 "Pedicure",
             ],
             description:
-                "Relaxation, regeneration and professional care for your body and feet.",
+                "Relaxation, regeneration and professional care for your body and feet at TY KRASO Beauty Studio in Trutnov.",
             image: "/images/services/4Massage.png",
         },
 
@@ -153,7 +153,7 @@ const services: Record<Language, Service[]> = {
                 "Brows",
             ],
             description:
-                "Comprehensive beauty care designed to enhance your natural features.",
+                "Comprehensive beauty care designed to enhance your natural features, including cosmetics, lashes and brows.",
             image: "/images/services/5Brows & Lashes.png",
         },
     ],
@@ -172,7 +172,7 @@ const services: Record<Language, Service[]> = {
                 "Воскова депіляція",
             ],
             description:
-                "Професійний догляд та сучасні методи видалення волосся з особливою увагою до комфорту та безпеки.",
+                "Професійна лазерна епіляція, електроепіляція та воскова депіляція у TY KRASO Beauty Studio в Трутнові. Сучасні методи з увагою до комфорту, безпеки та індивідуального підходу.",
             image: "/images/services/1Cosmetology.png",
         },
 
@@ -185,7 +185,7 @@ const services: Record<Language, Service[]> = {
                 "Укладка",
             ],
             description:
-                "Індивідуальний догляд за волоссям, сучасні стрижки, фарбування та укладки відповідно до ваших побажань.",
+                "Індивідуальний догляд за волоссям у Трутнові — сучасні стрижки, фарбування та укладки відповідно до ваших побажань.",
             image: "/images/services/3Hairdressing.png",
         },
 
@@ -198,7 +198,7 @@ const services: Record<Language, Service[]> = {
                 "Форма нігтів",
             ],
             description:
-                "Точний манікюр та професійний догляд для красивих і бездоганно доглянутих рук.",
+                "Точний манікюр та професійний догляд за нігтями для красивих і бездоганно доглянутих рук у TY KRASO.",
             image: "/images/services/2Manicure.png",
         },
 
@@ -210,7 +210,7 @@ const services: Record<Language, Service[]> = {
                 "Педикюр",
             ],
             description:
-                "Релакс, відновлення та професійна турбота про тіло й стопи.",
+                "Релакс, відновлення та професійна турбота про тіло й стопи у TY KRASO Beauty Studio в Трутнові.",
             image: "/images/services/4Massage.png",
         },
 
@@ -223,15 +223,52 @@ const services: Record<Language, Service[]> = {
                 "Брови",
             ],
             description:
-                "Комплексний косметологічний догляд та підкреслення природної краси обличчя.",
+                "Комплексний косметологічний догляд та підкреслення природної краси обличчя, вій і брів.",
             image: "/images/services/5Brows & Lashes.png",
         },
     ],
 };
 
+const sectionContent = {
+    cs: {
+        subtitle: "SLUŽBY",
+        title: "Naše služby",
+        description:
+        "Objevte profesionální kosmetické služby v TY KRASO Beauty Studio v Trutnově.",
+    },
+
+    en: {
+        subtitle: "SERVICES",
+        title: "Our services",
+        description:
+            "Discover professional beauty services at TY KRASO Beauty Studio in Trutnov.",
+    },
+
+    uk: {
+        subtitle: "ПОСЛУГИ",
+        title: "Наші послуги",
+        description:
+            "Відкрийте для себе професійні beauty-послуги у TY KRASO Beauty Studio в Трутнові.",
+    },
+};
+
 export default function Services() {
+    /*
+     * =====================================================
+     * LANGUAGE
+     * =====================================================
+     *
+     * Czech is the default language.
+     */
+
     const [language, setLanguage] =
         useState<Language>("cs");
+
+    /*
+     * =====================================================
+     * LOAD SAVED LANGUAGE
+     * =====================================================
+     */
 
     useEffect(() => {
         const savedLanguage =
@@ -248,34 +285,29 @@ export default function Services() {
         }
     }, []);
 
-    const currentServices = services[language];
-
-    const sectionContent = {
-        cs: {
-            subtitle: "Služby",
-            title: "Naše služby",
-        },
-
-        en: {
-            subtitle: "Services",
-            title: "Our services",
-        },
-
-        uk: {
-            subtitle: "Послуги",
-            title: "Наші послуги",
-        },
-    };
+    const currentServices =
+        services[language];
 
     const currentContent =
         sectionContent[language];
+
+    /*
+     * =====================================================
+     * RENDER
+     * =====================================================
+     */
 
     return (
         <section
             id="services"
             className={styles.services}
+            aria-labelledby="services-title"
         >
             <div className={styles.container}>
+
+                {/* =================================================
+                    SECTION TITLE
+                ================================================== */}
 
                 <SectionTitle
                     subtitle={
@@ -287,23 +319,45 @@ export default function Services() {
                     center
                 />
 
+                {/* =================================================
+                    SEO DESCRIPTION
+                ================================================== */}
+
+                <p
+                    id="services-title"
+                    className={styles.sectionDescription}
+                >
+                    {
+                        currentContent.description
+                    }
+                </p>
+
+                {/* =================================================
+                    SERVICES GRID
+                ================================================== */}
+
                 <div className={styles.grid}>
 
                     {currentServices.map(
                         (service, index) => (
                             <motion.article
-                                key={service.name}
-                                className={styles.card}
+                                key={`${service.name}-${service.title}`}
+                                className={
+                                    styles.card
+                                }
+
                                 initial={{
                                     opacity: 0,
                                     y: 45,
                                     scale: 0.98,
                                 }}
+
                                 whileInView={{
                                     opacity: 1,
                                     y: 0,
                                     scale: 1,
                                 }}
+
                                 transition={{
                                     duration: 0.8,
                                     delay:
@@ -315,12 +369,15 @@ export default function Services() {
                                         1,
                                     ],
                                 }}
+
                                 viewport={{
                                     once: true,
                                     amount: 0.15,
                                 }}
                             >
-                                {/* IMAGE */}
+                                {/* =================================================
+                                    IMAGE
+                                ================================================== */}
 
                                 <div
                                     className={
@@ -331,9 +388,7 @@ export default function Services() {
                                         src={
                                             service.image
                                         }
-                                        alt={
-                                            service.title
-                                        }
+                                        alt={`${service.title} — ${service.name} | TY KRASO Beauty Studio Trutnov`}
                                         fill
                                         sizes="
                                             (max-width: 768px) 100vw,
@@ -349,30 +404,41 @@ export default function Services() {
                                         className={
                                             styles.imageOverlay
                                         }
+                                        aria-hidden="true"
                                     />
                                 </div>
 
-                                {/* CONTENT */}
+                                {/* =================================================
+                                    CONTENT
+                                ================================================== */}
 
                                 <div
                                     className={
                                         styles.content
                                     }
                                 >
+                                    {/* SERVICE CATEGORY */}
+
                                     <span
                                         className={
                                             styles.category
                                         }
                                     >
-                                        {service.title}
+                                        {
+                                            service.title
+                                        }
                                     </span>
+
+                                    {/* MASTER */}
 
                                     <h3
                                         className={
                                             styles.name
                                         }
                                     >
-                                        {service.name}
+                                        {
+                                            service.name
+                                        }
                                     </h3>
 
                                     {/* PROCEDURES */}
@@ -380,6 +446,15 @@ export default function Services() {
                                     <div
                                         className={
                                             styles.procedures
+                                        }
+                                        aria-label={
+                                            language ===
+                                            "cs"
+                                                ? "Nabízené procedury"
+                                                : language ===
+                                                    "en"
+                                                    ? "Available treatments"
+                                                    : "Доступні процедури"
                                         }
                                     >
                                         {service.procedures.map(

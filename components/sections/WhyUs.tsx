@@ -53,7 +53,7 @@ const stats = {
         },
         {
             number: "2000+",
-            title: "щасливих клієнтів",
+            title: "задоволених клієнтів",
         },
         {
             number: "5",
@@ -70,16 +70,22 @@ const content = {
     cs: {
         subtitle: "PROČ MY",
         title: "Proč si vybrat nás",
+        description:
+            "TY KRASO Beauty Studio v Trutnově spojuje profesionální péči, moderní beauty služby a individuální přístup. Naším cílem je vytvořit příjemné prostředí, kde se budete cítit pohodlně a odcházet spokojení.",
     },
 
     en: {
         subtitle: "WHY US",
         title: "Why choose us",
+        description:
+            "TY KRASO Beauty Studio in Trutnov combines professional care, modern beauty services and an individual approach. Our goal is to create a comfortable environment where you can relax and leave feeling satisfied.",
     },
 
     uk: {
         subtitle: "ЧОМУ МИ",
         title: "Чому обирають нас",
+        description:
+            "TY KRASO Beauty Studio у Трутнові поєднує професійний догляд, сучасні beauty-послуги та індивідуальний підхід. Ми створили комфортний простір, де можна розслабитися та отримати якісний догляд.",
     },
 };
 
@@ -106,8 +112,15 @@ export default function WhyUs() {
     const currentContent = content[language];
 
     return (
-        <section className={styles.whyUs}>
+        <section
+            className={styles.whyUs}
+            aria-labelledby="why-us-title"
+        >
             <div className={styles.container}>
+
+                {/* =================================================
+                    HEADER
+                ================================================== */}
 
                 <motion.header
                     className={styles.header}
@@ -121,21 +134,45 @@ export default function WhyUs() {
                     }}
                     transition={{
                         duration: 0.8,
-                        ease: [0.22, 0.61, 0.36, 1],
+                        ease: [
+                            0.22,
+                            0.61,
+                            0.36,
+                            1,
+                        ],
                     }}
                     viewport={{
                         once: true,
                         amount: 0.2,
                     }}
                 >
-                    <span className={styles.subtitle}>
+                    <span
+                        className={styles.subtitle}
+                    >
                         {currentContent.subtitle}
                     </span>
 
-                    <h2 className={styles.title}>
+                    <h2
+                        id="why-us-title"
+                        className={styles.title}
+                    >
                         {currentContent.title}
                     </h2>
+
+                    <p
+                        className={
+                            styles.description
+                        }
+                    >
+                        {
+                            currentContent.description
+                        }
+                    </p>
                 </motion.header>
+
+                {/* =================================================
+                    STATS
+                ================================================== */}
 
                 <div className={styles.grid}>
 
@@ -154,7 +191,8 @@ export default function WhyUs() {
                                 }}
                                 transition={{
                                     duration: 0.75,
-                                    delay: index * 0.12,
+                                    delay:
+                                        index * 0.12,
                                     ease: [
                                         0.22,
                                         0.61,
@@ -172,7 +210,9 @@ export default function WhyUs() {
                                         styles.number
                                     }
                                 >
-                                    {item.number}
+                                    {
+                                        item.number
+                                    }
                                 </span>
 
                                 <span
@@ -180,7 +220,9 @@ export default function WhyUs() {
                                         styles.label
                                     }
                                 >
-                                    {item.title}
+                                    {
+                                        item.title
+                                    }
                                 </span>
                             </motion.article>
                         )
