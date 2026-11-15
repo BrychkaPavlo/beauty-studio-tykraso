@@ -12,6 +12,7 @@ import CTA from "@/components/sections/CTA";
 import Contact from "@/components/sections/Contact";
 import PriceList from "@/components/PriceList/Prices";
 import BackToTop from "@/components/ui/BackToTop";
+import GiftVouchers from "@/components/PriceList/GiftVouchers/GiftVouchers";
 
 export const metadata: Metadata = {
   title: "TY KRASO | BEAUTY STUDIO",
@@ -44,6 +45,8 @@ export default function Home() {
         <About />
 
         <Services />
+
+        <GiftVouchers/>
 
         <PriceList />
 
